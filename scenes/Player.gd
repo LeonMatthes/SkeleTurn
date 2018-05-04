@@ -15,6 +15,8 @@ var moveLeftAction = "move_left"
 
 var gameController = null
 
+var Arrow = preload("res://scenes/Arrow.tscn")
+
 
 func _ready():
 	self.initialize(null, self.position, self.playerNumber)
@@ -32,43 +34,49 @@ func changeGravity():
 	sprite.scale.y *= -1
 
 
-func getInput(delta):
+func getInput():
+	#handle movement input
 	velocity.x = 0
 	if Input.is_action_pressed("move_right" + str(playerNumber)):
 		velocity.x += speed
 	if Input.is_action_pressed("move_left" + str(playerNumber)):
 		velocity.x -= speed
-	#if Input.is_action_just_pressed("change_gravity" + str(playerNumber)):
-	#	self.changeGravity()
 	
 	# handle Arrow shooting
 	if Input.is_action_just_pressed("arrow_" + str(playerNumber) + "_left"):
 		self.shootArrow(-1)
 	if Input.is_action_just_pressed("arrow_" + str(playerNumber) + "_right"):
 		self.shootArrow(1)
-	
-	
+
+
+func updateGravity(delta):
 	velocity.y += gravityFactor * gravity * delta
 	
+	#apply multiple times the gravity if gravity and velocities signs are different
 	if velocity.y * gravityFactor < 0:
-		#apply tripple graity if gravity and velocities signs are different
 		velocity.y += gravityFactor * gravity * delta * 2
 
+
 func _physics_process(delta):
-	self.getInput(delta)
+	self.getInput()
+	self.updateGravity(delta)
 	velocity = self.move_and_slide(velocity)
 
 func shootArrow(var direction):
 	self.changeGravity()
-	var arrow = preload("res://scenes/Arrow.tscn").instance()
-	var xVel = 8 * direction # arrow speed
+	
+	var arrow = Arrow.instance()
+	var xVel = 0
+	if !self.velocity.x * direction < 0:
+		xVel += self.velocity.x / 5
 	var yVel = 0
-	arrow.translate(self.position + Vector2(self.get_node("PlayerCollisionBox").shape.extents.x + arrow.get_node("ArrowCollision").shape.extents.x * direction, yVel))
-	arrow.initialize(xVel, yVel)
-	arrow.get_node("ArrowSprite").scale.x *= direction
+	
+	var xOffset = (self.get_node("PlayerCollisionBox").shape.extents.x + arrow.get_node("ArrowCollision").shape.extents.x / 2) * direction
+	
 	self.get_parent().add_child(arrow)
-	
-	
+	var position = self.position + Vector2(xOffset, 0)
+	arrow.initialize(self.gravityFactor, position, direction, Vector2(xVel, yVel))
+
 
 func die():
 	gameController.notifyPlayerDeath(playerNumber)
