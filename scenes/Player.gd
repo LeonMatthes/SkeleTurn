@@ -38,8 +38,8 @@ func getInput(delta):
 		velocity.x += speed
 	if Input.is_action_pressed("move_left" + str(playerNumber)):
 		velocity.x -= speed
-	if Input.is_action_just_pressed("change_gravity" + str(playerNumber)):
-		self.changeGravity()
+	#if Input.is_action_just_pressed("change_gravity" + str(playerNumber)):
+	#	self.changeGravity()
 	
 	# handle Arrow shooting
 	if Input.is_action_just_pressed("arrow_" + str(playerNumber) + "_left"):
@@ -59,6 +59,7 @@ func _physics_process(delta):
 	velocity = self.move_and_slide(velocity)
 
 func shootArrow(var direction):
+	self.changeGravity()
 	var arrow = preload("res://scenes/Arrow.tscn").instance()
 	var xVel = 300 * direction
 	var yVel = 0
