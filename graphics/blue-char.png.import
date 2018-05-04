@@ -7,10 +7,10 @@ path="res://.import/blue-char.png-6fd86c718532b58983dc8a5d7b9d8573.stex"
 [deps]
 
 source_file="res://graphics/blue-char.png"
-source_md5="df056ca7859ca6d8e146e99ce1383ce4"
+source_md5="b2ee4e2429f8a4d80d72a13eea75fcd3"
 
 dest_files=[ "res://.import/blue-char.png-6fd86c718532b58983dc8a5d7b9d8573.stex" ]
-dest_md5="0deac3fa61ac8a3bbd8eb856c4aed598"
+dest_md5="3f6effab81edb887fffb6db72db1866e"
 
 [params]
 

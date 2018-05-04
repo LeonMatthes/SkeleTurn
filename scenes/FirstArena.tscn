@@ -1,50 +1,49 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://graphics/red-char.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 11.1812, 11.3194 )
+extents = Vector2( 12.1826, 22.0631 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 648.878, 29.2168 )
+extents = Vector2( 648.878, 32.053 )
 
 [node name="Node2D" type="Node2D" index="0"]
 
-[node name="Player" type="Node2D" parent="." index="0"]
+[node name="Player" type="KinematicBody2D" parent="." index="0"]
 
-position = Vector2( 743.913, 369.016 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="KinematicBody2D" type="KinematicBody2D" parent="." index="1"]
-
-position = Vector2( 635.12, 289.626 )
+position = Vector2( 634.153, 289.041 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
 gravityFactor = 1
 
-[node name="PlayerCollisionBox" type="CollisionShape2D" parent="KinematicBody2D" index="0"]
+[node name="PlayerCollisionBox" type="CollisionShape2D" parent="Player" index="0"]
 
 scale = Vector2( 2.3, 2.3 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PlayerIcon" type="Sprite" parent="KinematicBody2D" index="1"]
+[node name="PlayerIcon" type="Sprite" parent="Player" index="1"]
 
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall" type="RigidBody2D" parent="." index="2"]
+[node name="Wall" type="RigidBody2D" parent="." index="1"]
 
-position = Vector2( 492.123, 513.115 )
+position = Vector2( 649.463, 695.94 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -63,6 +62,9 @@ linear_velocity = Vector2( 0, 0 )
 linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" index="0"]
 
@@ -72,7 +74,43 @@ shape = SubResource( 2 )
 
 position = Vector2( 0.877594, 0 )
 scale = Vector2( 20.25, 1 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Wall2" type="RigidBody2D" parent="." index="2"]
+
+position = Vector2( 641.026, 18.2329 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="icon" type="Sprite" parent="Wall2" index="1"]
+
+position = Vector2( 0.877594, 0 )
+scale = Vector2( 20.25, 1 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 
