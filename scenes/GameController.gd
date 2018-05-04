@@ -1,6 +1,7 @@
 extends Node2D
 
 var spawns = []
+var activePlayers = [null, null, null]
 
 func _ready():
 	spawns = $Spawns.get_children()
@@ -18,8 +19,8 @@ func spawnPlayer(var playerNumber):
 		breakpoint
 	
 	var spawnNumber = randi() % availableSpawns.size()
-	availableSpawns[spawnNumber].spawnPlayer(self, playerNumber)
-	
+	activePlayers[playerNumber] = availableSpawns[spawnNumber].spawnPlayer(self, playerNumber)
 	
 func notifyPlayerDeath(var playerNumber):
+	activePlayers[playerNumber] = null
 	self.spawnPlayer(playerNumber)

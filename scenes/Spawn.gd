@@ -14,5 +14,8 @@ func spawnPlayer(var gameController, var playerNumber):
 		breakpoint
 	
 	var player = Player.instance()
-	player.initialize(gameController, self.position, playerNumber)
 	gameController.add_child(player)
+	player.initialize(gameController, self.position, playerNumber)
+	
+	return player
+	
