@@ -9,7 +9,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 12.1826, 22.0631 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0" groups=[
+"Player",
+]]
 
 scale = Vector2( 0.7, 0.7 )
 input_pickable = false
@@ -30,17 +32,12 @@ scale = Vector2( 2.3, 2.3 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
-
-scale = Vector2( 1, 1 )
-animation = "default"
-
-[node name="Player1Icon" type="Sprite" parent="." index="2"]
+[node name="Player1Icon" type="Sprite" parent="." index="1"]
 
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Player2Icon" type="Sprite" parent="." index="3"]
+[node name="Player2Icon" type="Sprite" parent="." index="2"]
 
 visible = false
 texture = ExtResource( 3 )

@@ -61,13 +61,13 @@ func _physics_process(delta):
 func shootArrow(var direction):
 	self.changeGravity()
 	var arrow = preload("res://scenes/Arrow.tscn").instance()
-	var xVel = 300 * direction
+	var xVel = 8 * direction # arrow speed
 	var yVel = 0
 	arrow.translate(self.position + Vector2(self.get_node("PlayerCollisionBox").shape.extents.x + arrow.get_node("ArrowCollision").shape.extents.x * direction, yVel))
 	arrow.initialize(xVel, yVel)
 	arrow.get_node("ArrowSprite").scale.x *= direction
 	self.get_parent().add_child(arrow)
-	
+
 
 func die():
 	gameController.notifyPlayerDeath(playerNumber)

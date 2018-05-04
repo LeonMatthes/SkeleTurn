@@ -16,6 +16,3 @@ func spawnPlayer(var gameController, var playerNumber):
 	var player = Player.instance()
 	gameController.add_child(player)
 	player.initialize(gameController, self.position, playerNumber)
-	
-	return player
-	
