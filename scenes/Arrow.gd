@@ -19,7 +19,9 @@ func initialize(var xVel, var yVel): # constructor
 func _physics_process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
-	move_and_slide(velocity)
+	var collision = move_and_collide(velocity) # collision is a KinematicCollision2D
+	if collision.collider.get_class() == "Player":
+		print("Player collision!")
 	
 
 #func _on_Arrow_body_entered(body):
