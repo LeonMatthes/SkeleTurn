@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://scenes/GameController.gd" type="Script" id=2]
+[ext_resource path="res://scenes/GameController.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Spawn.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -83,19 +83,18 @@ scale = Vector2( 20.25, 1 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="GameController" type="Node2D" parent="." index="2"]
+[node name="GameController2" parent="." index="2" instance=ExtResource( 2 )]
 
-position = Vector2( 482.22, 357.319 )
-script = ExtResource( 2 )
+position = Vector2( 567.002, 287.548 )
 
-[node name="Spawns" type="Node2D" parent="GameController" index="0"]
+[node name="Spawns" type="Node2D" parent="GameController2" index="0"]
 
-[node name="SpawnPosition" parent="GameController/Spawns" index="0" instance=ExtResource( 3 )]
+[node name="SpawnPosition" parent="GameController2/Spawns" index="0" instance=ExtResource( 3 )]
 
-position = Vector2( 80.4666, 54.1321 )
+position = Vector2( -4.31531, 123.903 )
 
-[node name="SpawnPosition2" parent="GameController/Spawns" index="1" instance=ExtResource( 3 )]
+[node name="SpawnPosition2" parent="GameController2/Spawns" index="1" instance=ExtResource( 3 )]
 
-position = Vector2( -123.369, 50.4932 )
+position = Vector2( -208.151, 120.264 )
 
 
