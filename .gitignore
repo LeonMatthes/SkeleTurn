@@ -1,5 +1,6 @@
 .import/
 .mono/
 export_presets.cfg
+scenes/FirstArena.tscn
 
 *.svg
