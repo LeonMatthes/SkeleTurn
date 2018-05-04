@@ -22,5 +22,7 @@ func spawnPlayer(var playerNumber):
 	activePlayers[playerNumber] = availableSpawns[spawnNumber].spawnPlayer(self, playerNumber)
 	
 func notifyPlayerDeath(var playerNumber):
+	var scores = get_parent().get_node("Scores")
+	scores.setScore(playerNumber, scores.getScore(playerNumber) + 1)
 	activePlayers[playerNumber] = null
 	self.spawnPlayer(playerNumber)

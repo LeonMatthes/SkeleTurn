@@ -67,7 +67,8 @@ func shootArrow(var direction):
 	arrow.initialize(xVel, yVel)
 	arrow.get_node("ArrowSprite").scale.x *= direction
 	self.get_parent().add_child(arrow)
-
+	
+	
 
 func die():
 	gameController.notifyPlayerDeath(playerNumber)
