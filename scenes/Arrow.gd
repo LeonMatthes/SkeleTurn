@@ -1,4 +1,4 @@
-extends Area2D
+extends KinematicBody2D
 
 # class member variables go here, for example:
 # var a = 2
@@ -16,14 +16,14 @@ func initialize(var xVel, var yVel): # constructor
 	self.velocity.x = xVel
 	self.velocity.y = yVel
 
-func _process(delta):
+func _physics_process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
-	$ArrowBody.move_and_slide(velocity)
+	move_and_slide(velocity)
 	
 
-func _on_Arrow_body_entered(body):
-	if body.get_class() == "Player":
-		body.die()
-	self.queue_free()
+#func _on_Arrow_body_entered(body):
+#	if body.get_class() == "Player":
+#		body.die()
+#	self.queue_free()
 	

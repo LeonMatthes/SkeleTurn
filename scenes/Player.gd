@@ -40,6 +40,14 @@ func getInput(delta):
 		velocity.x -= speed
 	if Input.is_action_just_pressed("change_gravity" + str(playerNumber)):
 		self.changeGravity()
+	
+	# handle Arrow shooting
+	if Input.is_action_just_pressed("arrow_" + str(playerNumber) + "_left"):
+		self.shootArrow(-1)
+	if Input.is_action_just_pressed("arrow_" + str(playerNumber) + "_right"):
+		self.shootArrow(1)
+	
+	
 	velocity.y += gravityFactor * gravity * delta
 	
 	if velocity.y * gravityFactor < 0:
@@ -49,6 +57,16 @@ func getInput(delta):
 func _physics_process(delta):
 	self.getInput(delta)
 	velocity = self.move_and_slide(velocity)
+
+func shootArrow(var direction):
+	var arrow = preload("res://scenes/Arrow.tscn").instance()
+	var xVel = 300 * direction
+	var yVel = 0
+	arrow.translate(self.position + Vector2(self.get_node("PlayerCollisionBox").shape.extents.x + arrow.get_node("ArrowCollision").shape.extents.x * direction, yVel))
+	arrow.initialize(xVel, yVel)
+	arrow.get_node("ArrowSprite").scale.x *= direction
+	self.get_parent().add_child(arrow)
+	
 
 func die():
 	gameController.notifyPlayerDeath(playerNumber)
