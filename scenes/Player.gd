@@ -8,7 +8,7 @@ var gravity = 2000
 
 
 var velocity = Vector2()
-var speed = 200
+var speed = 400
 
 var sprite = null
 
