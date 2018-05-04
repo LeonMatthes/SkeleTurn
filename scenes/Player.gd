@@ -21,9 +21,9 @@ func _ready():
 	
 func initialize(var gameController, var position, var playerNr):
 	self.gameController = gameController
-	self.position = position
+	self.translate(position)
 	self.playerNumber = playerNr
-	$Player1Icon.set_visible(false)
+	self.get_node("Player1Icon").set_visible(false)
 	sprite = self.get_node("Player" + str(playerNumber) + "Icon")
 	sprite.set_visible(true)
 
