@@ -20,9 +20,10 @@ func _physics_process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 	var collision = move_and_collide(velocity) # collision is a KinematicCollision2D
-	if collision.collider.get_class() == "Player":
-		print("Player collision!")
-	
+	if collision != null:
+		if collision.collider.is_in_group("Player"):
+			collision.collider.die()
+		self.queue_free()
 
 #func _on_Arrow_body_entered(body):
 #	if body.get_class() == "Player":
