@@ -12,6 +12,8 @@ extents = Vector2( 648.878, 32.053 )
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
+playerNumber = 2
+
 [node name="Wall" type="RigidBody2D" parent="." index="1"]
 
 position = Vector2( 649.463, 695.94 )
@@ -83,5 +85,9 @@ position = Vector2( 0.877594, 0 )
 scale = Vector2( 20.25, 1 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Player2" parent="." index="3" instance=ExtResource( 1 )]
+
+position = Vector2( 940, 371 )
 
 
