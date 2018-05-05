@@ -1,9 +1,10 @@
 extends Node2D
 
 var scores = [0,0,0]
+onready var scoreLabels = [null, get_node("Player1Score"), get_node("Player2Score")]
 
 func setScore(playerNumber, value):
-	get_node("Player" + str(playerNumber) + "Score").text = "Player" + str(playerNumber) + ": " + str(value)
+	scoreLabels[playerNumber].text = "Player" + str(playerNumber) + ": " + str(value)
 	scores[playerNumber] = value
 	
 func getScore(playerNumber):

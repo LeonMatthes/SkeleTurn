@@ -7,10 +7,10 @@ path="res://.import/block-1-left-corner.png-04bde4e235176faa28226d1e30f92e21.ste
 [deps]
 
 source_file="res://graphics/block-1-left-corner.png"
-source_md5="91121647dc50777495e221de83cc618b"
+source_md5="1ab8e857837e099b5aef75fc6a5e8635"
 
 dest_files=[ "res://.import/block-1-left-corner.png-04bde4e235176faa28226d1e30f92e21.stex" ]
-dest_md5="c19222f8f2420b8588bba0f1c18b1cde"
+dest_md5="7a8870738b3e1747c4a57cdbec3686a3"
 
 [params]
 
