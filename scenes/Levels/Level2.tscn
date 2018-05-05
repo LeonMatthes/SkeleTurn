@@ -42,7 +42,7 @@ _sections_unfolded = [ "Collision", "Pickable", "Z Index" ]
 [node name="ITSAHUGEWALL" parent="Physical" index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 6.5675, 344.193 )
-_sections_unfolded = [ "Pickable", "Z Index" ]
+_sections_unfolded = [ "Collision", "Pickable", "Z Index" ]
 
 [node name="ITSAHUGEWALL3" parent="Physical" index="3" instance=ExtResource( 2 )]
 
