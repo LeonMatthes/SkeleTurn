@@ -2,13 +2,14 @@
 
 [ext_resource path="res://scenes/Walls/HorizontalWall.gd" type="Script" id=1]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Wall" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
-horizontalBlocks = 3
-verticalBlocks = 3
+horizontalBlocks = 1
+verticalBlocks = 1
 
 
