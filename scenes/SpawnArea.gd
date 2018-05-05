@@ -6,7 +6,8 @@ func _ready():
 	pass
 
 func _on_SpawnArea_body_entered(body):
-	enteredBodies.append(body)
+	if enteredBodies.find(body) < 0: # find returns -1 if not found
+		enteredBodies.append(body)
 
 
 func _on_SpawnArea_body_exited(body):
