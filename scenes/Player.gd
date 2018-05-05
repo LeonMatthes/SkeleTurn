@@ -13,6 +13,7 @@ var animationPlayer = null
 
 var moveRightAction = "move_right"
 var moveLeftAction = "move_left"
+var shootVektor = Vector2(1,0)
 
 var gameController = null
 
@@ -63,6 +64,23 @@ func getInput():
 	else:
 		self.stopAnimation()
 	
+	#handle aiming yo
+	if Input.is_action_pressed("aim_up" + str(playerNumber)):
+		if (shootVektor.x>0):
+			shootVektor=shootVektor.rotated(PI/180)
+			#print(str(shootVektor.x) +"  "+str(shootVektor.y))
+		if (shootVektor.x<0):
+			shootVektor=shootVektor.rotated(-PI/180)
+			#print(str(shootVektor.x) +"  "+str(shootVektor.y))
+	if Input.is_action_pressed("aim_down" + str(playerNumber)):
+		if (shootVektor.x>0):
+			shootVektor=shootVektor.rotated(-PI/180)
+			#print(str(shootVektor.x) +"  "+str(shootVektor.y))
+		if (shootVektor.x<0):
+			shootVektor=shootVektor.rotated(PI/180)
+			#print(str(shootVektor.x) +"  "+str(shootVektor.y))
+
+	
 	# handle Arrow shooting
 	if Input.is_action_just_pressed("arrow_" + str(playerNumber) + "_left"):
 		self.shootArrow(-1)
@@ -99,8 +117,16 @@ func shootArrow(var direction):
 	var xOffset = (self.getWidth() + arrow.get_node("ArrowCollision").shape.extents.x / 2) * direction
 	var position = self.position + Vector2(xOffset, 0)
 	
-	self.get_parent().add_child(arrow)
-	arrow.initialize(self.gravityFactor, position, direction, Vector2(xVel, yVel))
+	self.get_parent().add_child(arrow)	
+	var yDirection = 0
+	if Input.is_action_pressed("aim_down" + str(playerNumber)):
+		yDirection += 1
+	if Input.is_action_pressed("aim_up" + str(playerNumber)):
+		yDirection -= 1
+	
+	var shootDirection = Vector2(direction, yDirection).normalized()
+	
+	arrow.initialize(self.gravityFactor, position, shootDirection, Vector2(xVel, yVel))
 
 
 func die():
