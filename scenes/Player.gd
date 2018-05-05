@@ -13,7 +13,6 @@ var animationPlayer = null
 
 var moveRightAction = "move_right"
 var moveLeftAction = "move_left"
-var shootVektor = Vector2(1,0)
 
 var gameController = null
 
@@ -28,6 +27,7 @@ func initialize(var gameController, var position, var playerNr, var gravityFacto
 	self.playerNumber = playerNr
 	
 	self.get_node("Player1Icon").set_visible(false)
+	self.get_node("Player2Icon").set_visible(false)
 	self.sprite = self.get_node("Player" + str(playerNumber) + "Icon")
 	self.sprite.set_visible(true)
 	self.animationPlayer = self.sprite.get_node("AnimationPlayer")
@@ -63,23 +63,6 @@ func getInput():
 		self.playAnimation()
 	else:
 		self.stopAnimation()
-	
-	#handle aiming yo
-	if Input.is_action_pressed("aim_up" + str(playerNumber)):
-		if (shootVektor.x>0):
-			shootVektor=shootVektor.rotated(PI/180)
-			#print(str(shootVektor.x) +"  "+str(shootVektor.y))
-		if (shootVektor.x<0):
-			shootVektor=shootVektor.rotated(-PI/180)
-			#print(str(shootVektor.x) +"  "+str(shootVektor.y))
-	if Input.is_action_pressed("aim_down" + str(playerNumber)):
-		if (shootVektor.x>0):
-			shootVektor=shootVektor.rotated(-PI/180)
-			#print(str(shootVektor.x) +"  "+str(shootVektor.y))
-		if (shootVektor.x<0):
-			shootVektor=shootVektor.rotated(PI/180)
-			#print(str(shootVektor.x) +"  "+str(shootVektor.y))
-
 	
 	# handle Arrow shooting
 	if Input.is_action_just_pressed("arrow_" + str(playerNumber) + "_left"):

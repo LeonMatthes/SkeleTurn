@@ -4,8 +4,9 @@
 
 [node name="Wall" type="Node2D" index="0"]
 
+z_index = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_group_": true
 }
