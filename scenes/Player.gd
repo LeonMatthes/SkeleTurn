@@ -44,7 +44,7 @@ func changeGravity():
 
 func playAnimation():
 	if !animationPlayer.is_playing():
-		animationPlayer.play("Moving-test")
+		animationPlayer.play("Moving")
 	
 func stopAnimation():
 	if animationPlayer.is_playing():
