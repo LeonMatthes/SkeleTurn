@@ -21,18 +21,19 @@
 custom_solver_bias = 0.0
 extents = Vector2( 12.1826, 21.3015 )
 
-[node name="Player" type="KinematicBody2D" groups=[
+[node name="Player" type="KinematicBody2D" index="0" groups=[
 "Player",
 ]]
 
 position = Vector2( -0.27055, -1.2321 )
 scale = Vector2( 0.6, 0.6 )
+z_index = 1
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform" ]
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 __meta__ = {
 "_edit_group_": true,
 "_edit_horizontal_guides_": [ 38.1421 ]

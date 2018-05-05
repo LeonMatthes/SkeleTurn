@@ -126,9 +126,10 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Damping", "Initial Velocity", "Linear Accel", "Scale", "Spread" ]
 
-[node name="Arrow" type="Area2D"]
+[node name="Arrow" type="Area2D" index="0"]
 
 scale = Vector2( 0.3125, 0.3125 )
+z_index = 1
 input_pickable = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -137,7 +138,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="ArrowSprite" type="Sprite" parent="." index="0"]
 
