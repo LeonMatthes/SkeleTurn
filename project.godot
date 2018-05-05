@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="HPI Game Jam 2018"
-run/main_scene="res://scenes/Levels/FirstLevel.tscn"
+run/main_scene="res://scenes/Titlescreen_stupid.tscn"
 config/icon="res://icon.png"
 
 [display]

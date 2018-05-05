@@ -23,13 +23,16 @@ func spawnPlayer(var playerNumber):
 	var spawnNumber = randi() % availableSpawns.size()
 	activePlayers[playerNumber] = availableSpawns[spawnNumber].spawnPlayer(self, playerNumber)
 	
-func endGame():
+
+func returnToTitle():
 	for children in self.get_tree().get_root().get_children():
 		children.queue_free()
 	
 	var titleScreen = TitleScreen.instance()
 	self.get_tree().get_root().add_child(titleScreen)
-	
+
+func endGame():
+	self.returnToTitle()
 
 func notifyPlayerDeath(var playerNumber):
 	var scores = get_parent().get_node("Scores")
@@ -39,3 +42,7 @@ func notifyPlayerDeath(var playerNumber):
 		
 	activePlayers[playerNumber] = null
 	self.spawnPlayer(playerNumber)
+	
+func _process(delta):
+	if Input.is_action_just_released("ui_cancel"):
+		self.returnToTitle()
