@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/arrow_damage.wav-548b53e930ce85d195981946cdb6e9fa.sample"
+
+[deps]
+
+source_file="res://sounds/arrow_damage.wav"
+source_md5="61ce65f8b3e36ad2463467b9e58b7410"
+
+dest_files=[ "res://.import/arrow_damage.wav-548b53e930ce85d195981946cdb6e9fa.sample" ]
+dest_md5="8f8858177eb260ec38612d42d442ca41"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
