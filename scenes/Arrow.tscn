@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Arrow.gd" type="Script" id=1]
 [ext_resource path="res://graphics/arrow_v2.png" type="Texture" id=2]
@@ -6,7 +6,20 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 75.9969, 8.88968 )
+extents = Vector2( 58.6384, 8.88968 )
+
+[sub_resource type="Curve" id=3]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+
+flags = 4
+width = 2048
+curve = SubResource( 3 )
 
 [sub_resource type="ParticlesMaterial" id=2]
 
@@ -17,27 +30,28 @@ emission_sphere_radius = 10.0
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = true
-spread = 10.0
+spread = 50.0
 flatness = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 1000.0
-initial_velocity_random = 0.1
-angular_velocity = 170.0
+initial_velocity_random = 0.7
+angular_velocity = 360.0
 angular_velocity_random = 0.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-linear_accel = 100.0
+linear_accel = 0.0
 linear_accel_random = 0.0
 radial_accel = 0.0
 radial_accel_random = 0.0
 tangential_accel = 0.0
 tangential_accel_random = 0.0
-damping = 0.0
+damping = 50.0
 damping_random = 0.0
-angle = 0.0
+angle = 90.0
 angle_random = 0.0
-scale = 50.0
+scale = 7.0
 scale_random = 0.7
+scale_curve = SubResource( 4 )
 color = Color( 0.875, 0.827957, 0.827957, 1 )
 hue_variation = 1.0
 hue_variation_random = 1.0
@@ -46,7 +60,7 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Initial Velocity", "Linear Accel", "Scale" ]
+_sections_unfolded = [ "Angle", "Angular Velocity", "Animation", "Color", "Damping", "Hue Variation", "Initial Velocity", "Linear Accel", "Scale", "Spread" ]
 
 [node name="Arrow" type="Area2D" index="0"]
 
@@ -73,12 +87,12 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Particles2D" type="Particles2D" parent="." index="2"]
 
-position = Vector2( -49.2368, 0.25022 )
-rotation = 3.13859
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -48.6064, 0.248327 )
+rotation = 3.14178
+scale = Vector2( 0.4803, 0.5 )
 emitting = true
 amount = 40
-lifetime = 2.0
+lifetime = 0.2
 one_shot = false
 preprocess = 0.0
 speed_scale = 1.0
@@ -87,14 +101,14 @@ randomness = 0.0
 fixed_fps = 0
 fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = true
+local_coords = false
 draw_order = 0
 process_material = SubResource( 2 )
 texture = null
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Process Material", "Time" ]
+_sections_unfolded = [ "Drawing", "Process Material", "Time" ]
 
 [connection signal="body_entered" from="." to="." method="_on_Arrow_body_entered"]
 
