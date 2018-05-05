@@ -19,8 +19,6 @@ __meta__ = {
 
 [node name="Walls" type="Node" parent="." index="1"]
 
-editor/display_folded = true
-
 [node name="Wall" parent="Walls" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 32, 32 )
@@ -43,25 +41,41 @@ verticalBlocks = 10
 
 [node name="GameController" parent="." index="2" instance=ExtResource( 3 )]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Spawns" type="Node" parent="GameController" index="1"]
 
-[node name="SpawnPosition3" parent="GameController/Spawns" index="0" instance=ExtResource( 4 )]
-
-position = Vector2( 160, 673 )
-
-[node name="SpawnPosition4" parent="GameController/Spawns" index="1" instance=ExtResource( 4 )]
+[node name="SpawnPosition" parent="GameController/Spawns" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 640, 672 )
 
-[node name="SpawnPosition5" parent="GameController/Spawns" index="2" instance=ExtResource( 4 )]
+[node name="SpawnPosition5" parent="GameController/Spawns" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 640, 96 )
+turnGravity = true
+
+[node name="SpawnPosition6" parent="GameController/Spawns" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 1120, 96 )
+turnGravity = true
+
+[node name="SpawnPosition4" parent="GameController/Spawns" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 160, 672 )
+
+[node name="SpawnPosition2" parent="GameController/Spawns" index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 1120, 672 )
+
+[node name="SpawnPosition3" parent="GameController/Spawns" index="5" instance=ExtResource( 4 )]
+
+position = Vector2( 160, 96 )
+turnGravity = true
 
 [node name="Scores" parent="." index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 96, 96 )
 z_index = 3
 _sections_unfolded = [ "Transform", "Z Index" ]
+
+

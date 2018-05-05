@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/Spawn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Scores.tscn" type="PackedScene" id=5]
 
-[node name="Level6" type="Node" index="0"]
+[node name="Level6" type="Node"]
 
 [node name="background" type="Sprite" parent="." index="0"]
 
@@ -18,8 +18,6 @@ __meta__ = {
 }
 
 [node name="Walls" type="Node" parent="." index="1"]
-
-editor/display_folded = true
 
 [node name="Wall" parent="Walls" index="0" instance=ExtResource( 2 )]
 
@@ -93,7 +91,6 @@ verticalBlocks = 2
 
 [node name="GameController" parent="." index="2" instance=ExtResource( 3 )]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Spawns" type="Node" parent="GameController" index="1"]
@@ -139,3 +136,5 @@ turnGravity = true
 position = Vector2( 96, 96 )
 z_index = 3
 _sections_unfolded = [ "Transform", "Z Index" ]
+
+
