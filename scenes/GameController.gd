@@ -2,6 +2,7 @@ extends Node2D
 
 var spawns = []
 var activePlayers = [null, null, null]
+onready var TitleScreen = preload("res://scenes/Titlescreen_stupid.tscn")
 
 func _ready():
 	spawns = $Spawns.get_children()
@@ -23,7 +24,12 @@ func spawnPlayer(var playerNumber):
 	activePlayers[playerNumber] = availableSpawns[spawnNumber].spawnPlayer(self, playerNumber)
 	
 func endGame():
-	pass
+	for children in self.get_tree().get_root().get_children():
+		children.queue_free()
+	
+	var titleScreen = TitleScreen.instance()
+	self.get_tree().get_root().add_child(titleScreen)
+	
 
 func notifyPlayerDeath(var playerNumber):
 	var scores = get_parent().get_node("Scores")
