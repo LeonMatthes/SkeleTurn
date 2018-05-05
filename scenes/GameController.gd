@@ -21,8 +21,14 @@ func spawnPlayer(var playerNumber):
 	var spawnNumber = randi() % availableSpawns.size()
 	activePlayers[playerNumber] = availableSpawns[spawnNumber].spawnPlayer(self, playerNumber)
 	
+func endGame():
+	pass
+
 func notifyPlayerDeath(var playerNumber):
 	var scores = get_parent().get_node("Scores")
-	scores.setScore(3 - playerNumber, scores.getScore(3 - playerNumber) + 1)
+	scores.setScore(playerNumber, scores.getScore(playerNumber) - 1)
+	if scores.getScore(playerNumber) <= 0:
+		self.endGame()
+		
 	activePlayers[playerNumber] = null
 	self.spawnPlayer(playerNumber)
