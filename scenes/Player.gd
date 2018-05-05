@@ -10,6 +10,7 @@ var speed = 400
 
 var sprite = null
 var animationPlayer = null
+var inputDisabled = false
 
 var moveRightAction = "move_right"
 var moveLeftAction = "move_left"
@@ -28,6 +29,7 @@ func initialize(var gameController, var position, var playerNr, var gravityFacto
 	self.playerNumber = playerNr
 	
 	self.get_node("Player1Icon").set_visible(false)
+	self.get_node("Player2Icon").set_visible(false)
 	self.sprite = self.get_node("Player" + str(playerNumber) + "Icon")
 	self.sprite.set_visible(true)
 	self.animationPlayer = self.sprite.get_node("AnimationPlayer")
@@ -54,6 +56,9 @@ func stopAnimation():
 
 func getInput():
 	#handle movement input
+	if inputDisabled:
+		return
+	
 	velocity.x = 0
 	if Input.is_action_pressed("move_right" + str(playerNumber)):
 		velocity.x += speed
@@ -135,11 +140,13 @@ func _on_timer_timeout():
 func die():
 	gameController.notifyPlayerDeath(playerNumber)
 	
-	animationDeadPlayer.play("Dead")
+	animationPlayer.play("Moving") #todo change to dying
+	self.get_node("PlayerCollisionBox").disabled = true
+	self.set_physics_process(false)
 	
 	var timer = Timer.new()
 	timer.connect("timeout",self,"_on_timer_timeout") 
-	timer.wait_time = 1
+	timer.wait_time = 2
 	add_child(timer)
 	timer.start()
 	
