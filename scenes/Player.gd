@@ -27,6 +27,7 @@ func initialize(var gameController, var position, var playerNr, var gravityFacto
 	self.playerNumber = playerNr
 	
 	self.get_node("Player1Icon").set_visible(false)
+	self.get_node("Player2Icon").set_visible(false)
 	self.sprite = self.get_node("Player" + str(playerNumber) + "Icon")
 	self.sprite.set_visible(true)
 	self.animationPlayer = self.sprite.get_node("AnimationPlayer")
