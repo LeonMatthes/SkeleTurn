@@ -31,6 +31,8 @@ _sections_unfolded = [ "Transform" ]
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
+[connection signal="area_entered" from="." to="." method="_on_Arrow_area_entered"]
+
 [connection signal="body_entered" from="." to="." method="_on_Arrow_body_entered"]
 
 
