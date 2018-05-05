@@ -1,12 +1,9 @@
-extends KinematicBody2D
+extends Area2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
 var velocity = Vector2()
 var gravityFactor = 1
-var gravity = 1500
-var speed = 500
+var customGravity = 1300
+var speed = 700
 
 func _ready():
 	pass
@@ -16,16 +13,16 @@ func initialize(var gravityFactor, var position, var direction, var velocity): #
 	self.translate(position)
 	self.velocity.x = velocity.x + speed * direction
 	self.velocity.y = velocity.y
-	self.get_node("ArrowSprite").scale.x *= direction
 
 func calculateVelocity(delta):
-	velocity.y += gravityFactor * gravity * delta
+	velocity.y += gravityFactor * customGravity * delta
 
 func _physics_process(delta):
 	self.calculateVelocity(delta)
-	
-	var collision = move_and_collide(velocity * delta) # collision is a KinematicCollision2D
-	if collision != null:
-		if collision.collider.is_in_group("Player"):
-			collision.collider.die()
-		self.queue_free()
+	self.translate(velocity * delta)
+	self.look_at(self.position + self.velocity * delta)
+
+func _on_Arrow_body_entered(body):
+	if body.is_in_group("Player"):
+		body.die()
+	self.queue_free()
