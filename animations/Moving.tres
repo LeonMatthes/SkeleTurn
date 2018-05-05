@@ -54,4 +54,76 @@ tracks/3/keys = {
 "update": 0,
 "values": [ -15.0, -5.0, 5.0, 15.0, 25.0, 15.0, 5.0, -5.0, -15.0 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Head:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -38.8844 ), Vector2( 0, -38.8844 ), Vector2( 0, -38.8844 ), Vector2( 0, -38.8844 ), Vector2( 0, -38.8844 ), Vector2( 0, -38.8844 ), Vector2( 0, -38.8844 ), Vector2( 0, -38.8844 ), Vector2( 0, -38.8844 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Body:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -6.55408 ), Vector2( 0, -6.55408 ), Vector2( 0, -6.55408 ), Vector2( 0, -6.55408 ), Vector2( 0, -6.55408 ), Vector2( 0, -6.55408 ), Vector2( 0, -6.55408 ), Vector2( 0, -6.55408 ), Vector2( 0, -6.55408 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("LeftArm:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.64 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -13.2997, -26.464 ), Vector2( -13.2997, -26.464 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("RightArm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.64 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 13.7338, -26.464 ), Vector2( 13.7338, -26.464 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("LeftLeg:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.64 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -9.28827, 14.3478 ), Vector2( -9.28827, 14.3478 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("RightLeg:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.64 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 10.9432, 15.0455 ), Vector2( 10.9432, 15.0455 ) ]
+}
 
