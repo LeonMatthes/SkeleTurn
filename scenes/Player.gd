@@ -9,6 +9,7 @@ var velocity = Vector2()
 var speed = 400
 
 var sprite = null
+var animationPlayer = null
 
 var moveRightAction = "move_right"
 var moveLeftAction = "move_left"
@@ -28,11 +29,20 @@ func initialize(var gameController, var position, var playerNr):
 	self.get_node("Player1Icon").set_visible(false)
 	sprite = self.get_node("Player" + str(playerNumber) + "Icon")
 	sprite.set_visible(true)
+	animationPlayer = sprite.get_node("AnimationPlayer")
 
 func changeGravity():
 	gravityFactor *= -1
 	sprite.scale.y *= -1
 
+
+func playAnimation():
+	if !animationPlayer.is_playing():
+		animationPlayer.play("Moving-test")
+	
+func stopAnimation():
+	if animationPlayer.is_playing():
+		animationPlayer.stop(false)
 
 func getInput():
 	#handle movement input
@@ -41,6 +51,11 @@ func getInput():
 		velocity.x += speed
 	if Input.is_action_pressed("move_left" + str(playerNumber)):
 		velocity.x -= speed
+	
+	if velocity.x != 0:
+		self.playAnimation()
+	else:
+		self.stopAnimation()
 	
 	# handle Arrow shooting
 	if Input.is_action_just_pressed("arrow_" + str(playerNumber) + "_left"):
@@ -62,6 +77,10 @@ func _physics_process(delta):
 	self.updateGravity(delta)
 	velocity = self.move_and_slide(velocity)
 
+
+func getWidth():
+	return self.get_node("PlayerCollisionBox").shape.extents.x
+
 func shootArrow(var direction):
 	self.changeGravity()
 	
@@ -71,10 +90,10 @@ func shootArrow(var direction):
 		xVel += self.velocity.x / 5
 	var yVel = 0
 	
-	var xOffset = (self.get_node("PlayerCollisionBox").shape.extents.x + arrow.get_node("ArrowCollision").shape.extents.x / 2) * direction
+	var xOffset = (self.getWidth() + arrow.get_node("ArrowCollision").shape.extents.x / 2) * direction
+	var position = self.position + Vector2(xOffset, 0)
 	
 	self.get_parent().add_child(arrow)
-	var position = self.position + Vector2(xOffset, 0)
 	arrow.initialize(self.gravityFactor, position, direction, Vector2(xVel, yVel))
 
 
