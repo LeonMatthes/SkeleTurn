@@ -13,6 +13,10 @@ func initialize(var gravityFactor, var position, var direction, var velocity): #
 	self.translate(position)
 	self.velocity.x = velocity.x + speed * direction
 	self.velocity.y = velocity.y
+	self.get_sound("ArrowShot").play()
+
+func get_sound(sound):
+	return self.get_parent().get_node("Sound").get_node(sound)
 
 func calculateVelocity(delta):
 	velocity.y += gravityFactor * customGravity * delta
@@ -27,9 +31,10 @@ func _process(delta):
 	if position.x<0:
 		position.x=1280
 	if position.x>1280:
-		postion.x=0
+		position.x=0
 
 func _on_Arrow_body_entered(body):
 	if body.is_in_group("Player"):
+		self.get_sound("ArrowDamage").play()
 		body.die()
 	self.queue_free()
