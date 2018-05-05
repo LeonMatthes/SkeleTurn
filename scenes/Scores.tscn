@@ -2,12 +2,13 @@
 
 [ext_resource path="res://scenes/Score.gd" type="Script" id=1]
 
-[node name="Scores" type="Node2D"]
+[node name="Scores" type="Node2D" index="0"]
 
 position = Vector2( -4, 4 )
 scale = Vector2( 3, 3 )
+z_index = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_group_": true
 }
