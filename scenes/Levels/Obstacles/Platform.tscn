@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 115.606, 24.5248 )
 
-[node name="ITSAHUGEWALL" type="StaticBody2D"]
+[node name="ITSAHUGEWALL" type="StaticBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -47,6 +47,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
 
+visible = false
 position = Vector2( 160.904, 31.3019 )
 scale = Vector2( 1.39819, 1.26713 )
 shape = SubResource( 1 )
