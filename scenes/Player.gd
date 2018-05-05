@@ -14,7 +14,6 @@ var inputDisabled = false
 
 var moveRightAction = "move_right"
 var moveLeftAction = "move_left"
-var shootVektor = Vector2(1,0)
 
 var gameController = null
 
@@ -69,23 +68,6 @@ func getInput():
 		self.playAnimation()
 	else:
 		self.stopAnimation()
-	
-	#handle aiming yo
-	if Input.is_action_pressed("aim_up" + str(playerNumber)):
-		if (shootVektor.x>0):
-			shootVektor=shootVektor.rotated(PI/180)
-			#print(str(shootVektor.x) +"  "+str(shootVektor.y))
-		if (shootVektor.x<0):
-			shootVektor=shootVektor.rotated(-PI/180)
-			#print(str(shootVektor.x) +"  "+str(shootVektor.y))
-	if Input.is_action_pressed("aim_down" + str(playerNumber)):
-		if (shootVektor.x>0):
-			shootVektor=shootVektor.rotated(-PI/180)
-			#print(str(shootVektor.x) +"  "+str(shootVektor.y))
-		if (shootVektor.x<0):
-			shootVektor=shootVektor.rotated(PI/180)
-			#print(str(shootVektor.x) +"  "+str(shootVektor.y))
-
 	
 	# handle Arrow shooting
 	if Input.is_action_just_pressed("arrow_" + str(playerNumber) + "_left"):

@@ -25,13 +25,13 @@ extents = Vector2( 12.1826, 21.3015 )
 ]]
 
 position = Vector2( -0.27055, -1.2321 )
-scale = Vector2( 0.7, 0.7 )
+scale = Vector2( 0.6, 0.6 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform", "collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 __meta__ = {
 "_edit_group_": true,
 "_edit_horizontal_guides_": [ 38.1421 ]
@@ -109,6 +109,8 @@ _sections_unfolded = [ "Playback Options" ]
 
 [node name="Player2Icon" type="Node2D" parent="." index="2"]
 
+visible = false
+
 [node name="Head" type="Sprite" parent="Player2Icon" index="0"]
 
 position = Vector2( 0, -38.8844 )
@@ -126,7 +128,8 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 [node name="LeftArm" type="Sprite" parent="Player2Icon" index="2"]
 
 position = Vector2( -13.2997, -26.464 )
-rotation = -0.8114
+rotation = -0.89636
+scale = Vector2( 1, 1 )
 texture = ExtResource( 11 )
 offset = Vector2( -17.7389, -0.156278 )
 _sections_unfolded = [ "Region", "Transform" ]
@@ -134,7 +137,8 @@ _sections_unfolded = [ "Region", "Transform" ]
 [node name="RightArm" type="Sprite" parent="Player2Icon" index="3"]
 
 position = Vector2( 13.7338, -26.464 )
-rotation = 0.8114
+rotation = 0.89636
+scale = Vector2( 1, 1 )
 texture = ExtResource( 12 )
 offset = Vector2( 17.5413, 0.230286 )
 _sections_unfolded = [ "Transform" ]
@@ -142,7 +146,8 @@ _sections_unfolded = [ "Transform" ]
 [node name="LeftLeg" type="Sprite" parent="Player2Icon" index="4"]
 
 position = Vector2( -9.28827, 14.3478 )
-rotation = -0.113624
+rotation = -0.0286643
+scale = Vector2( 1, 1 )
 texture = ExtResource( 13 )
 offset = Vector2( 4.57461, 17.0378 )
 _sections_unfolded = [ "Transform" ]
@@ -150,7 +155,8 @@ _sections_unfolded = [ "Transform" ]
 [node name="RightLeg" type="Sprite" parent="Player2Icon" index="5"]
 
 position = Vector2( 10.9432, 15.0455 )
-rotation = 0.113624
+rotation = 0.0286643
+scale = Vector2( 1, 1 )
 texture = ExtResource( 14 )
 offset = Vector2( 4.18966, 16.7246 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
@@ -165,5 +171,3 @@ playback_speed = 1.0
 anims/Moving = ExtResource( 8 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
-
-
