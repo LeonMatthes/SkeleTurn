@@ -11,8 +11,8 @@ func _ready():
 func initialize(var gravityFactor, var position, var direction, var velocity): # constructor
 	self.gravityFactor = gravityFactor
 	self.translate(position)
-	self.velocity.x = velocity.x + speed * direction
-	self.velocity.y = velocity.y
+	self.velocity.x = velocity.x + speed * direction.x
+	self.velocity.y = velocity.y + speed * direction.y
 	self.get_sound("ArrowShot").play()
 
 func get_sound(sound):
