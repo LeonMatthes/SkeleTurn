@@ -18,6 +18,9 @@ var moveLeftAction = "move_left"
 var gameController = null
 
 var Arrow = preload("res://scenes/Arrow.tscn")
+var canShoot = true
+var shootTimeOut = 0.3
+onready var shootTimer = Timer.new()
 
 
 func _ready():
@@ -35,6 +38,11 @@ func initialize(var gameController, var position, var playerNr, var gravityFacto
 	
 	self.translate(position)
 	self.setGravityFactor(gravityFactor)
+	
+	self.shootTimer.wait_time = self.shootTimeOut
+	self.shootTimer.connect("timeout", self, "_on_shootTimer_timeout")
+	self.add_child(shootTimer)
+	
 
 func setGravityFactor(var gravityFactor):
 	self.gravityFactor = gravityFactor
@@ -94,6 +102,8 @@ func getWidth():
 	return self.get_node("PlayerCollisionBox").shape.extents.x
 
 func shootArrow(var direction):
+	if !canShoot:
+		return
 	self.changeGravity()
 	
 	var arrow = Arrow.instance()
@@ -115,8 +125,14 @@ func shootArrow(var direction):
 	var shootDirection = Vector2(direction, yDirection).normalized()
 	
 	arrow.initialize(self.gravityFactor, position, shootDirection, Vector2(xVel, yVel))
+	self.canShoot = false
+	self.shootTimer.start()
 
-func _on_timer_timeout():
+func _on_shootTimer_timeout():
+	canShoot = true
+
+
+func _on_deathTimer_timeout():
 	self.queue_free()
 
 func die():
@@ -127,7 +143,7 @@ func die():
 	self.set_physics_process(false)
 	
 	var timer = Timer.new()
-	timer.connect("timeout",self,"_on_timer_timeout") 
+	timer.connect("timeout",self,"_on_deathTimer_timeout") 
 	timer.wait_time = 0.5
 	add_child(timer)
 	timer.start()
