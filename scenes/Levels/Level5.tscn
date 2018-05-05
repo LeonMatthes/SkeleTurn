@@ -6,11 +6,11 @@
 [ext_resource path="res://scenes/GameController.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Spawn.tscn" type="PackedScene" id=5]
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 [node name="background" type="Sprite" parent="." index="0"]
 
-position = Vector2( 608, 352 )
+position = Vector2( 640, 360 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
