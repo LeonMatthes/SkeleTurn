@@ -137,7 +137,8 @@ func die():
 	gameController.notifyPlayerDeath(playerNumber)
 	
 	animationPlayer.play("Dying", -1, 3.0) #todo change to dying
-	self.inputDisabled = true
+	self.set_physics_process(false)
+	self.get_node("PlayerCollisionBox").disabled = true
 	
 	var timer = Timer.new()
 	timer.connect("timeout",self,"_on_deathTimer_timeout") 
