@@ -139,5 +139,3 @@ turnGravity = true
 position = Vector2( 96, 96 )
 z_index = 3
 _sections_unfolded = [ "Transform", "Z Index" ]
-
-
