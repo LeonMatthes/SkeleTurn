@@ -27,7 +27,7 @@ func _process(delta):
 	if position.x<0:
 		position.x=1280
 	if position.x>1280:
-		postion.x=0
+		position.x=0
 
 func _on_Arrow_body_entered(body):
 	if body.is_in_group("Player"):
