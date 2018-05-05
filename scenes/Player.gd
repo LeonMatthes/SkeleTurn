@@ -122,13 +122,13 @@ func _on_timer_timeout():
 func die():
 	gameController.notifyPlayerDeath(playerNumber)
 	
-	animationPlayer.play("Moving") #todo change to dying
+	animationPlayer.play("Dying", -1, 3.0) #todo change to dying
 	self.get_node("PlayerCollisionBox").disabled = true
 	self.set_physics_process(false)
 	
 	var timer = Timer.new()
 	timer.connect("timeout",self,"_on_timer_timeout") 
-	timer.wait_time = 2
+	timer.wait_time = 0.5
 	add_child(timer)
 	timer.start()
 	
