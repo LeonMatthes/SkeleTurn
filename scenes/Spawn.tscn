@@ -1,15 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/Spawn.gd" type="Script" id=1]
 [ext_resource path="res://scenes/SpawnArea.gd" type="Script" id=2]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 23.9502, 31.3052 )
 
-[node name="SpawnPosition" type="Position2D" index="0"]
+[node name="SpawnPosition" type="Position2D"]
 
 z_index = 1
 script = ExtResource( 1 )
@@ -32,10 +31,6 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
-
-[node name="Player" parent="." index="1" instance=ExtResource( 3 )]
-
-position = Vector2( 0, 0 )
 
 [connection signal="body_entered" from="SpawnArea" to="SpawnArea" method="_on_SpawnArea_body_entered"]
 
