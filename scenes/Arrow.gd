@@ -31,7 +31,7 @@ func _physics_process(delta):
 		position.x=0
 	
 	self.look_at(self.position + self.velocity * delta)
-<<<<<<< HEAD
+
 	
 func mydelete():
 	get_node("ArrowCollision").disabled = true
@@ -47,15 +47,11 @@ func mydelete():
 	
 func _on_timer_timeout():
 	self.queue_free()
-	
-func _on_Arrow_body_entered(body):
-	if body.is_in_group("Player"):
-		get_node("Explosion").emitting = true
-=======
+		
 
 func _on_Arrow_body_entered(body):
 	if body.is_in_group("Player"):
 		self.get_sound("ArrowDamage").play()
->>>>>>> a481e05a8193db78489fee1ee43675e7350fbabb
+		get_node("Explosion").emitting = true
 		body.die()
 	self.mydelete()
