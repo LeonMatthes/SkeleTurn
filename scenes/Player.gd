@@ -103,6 +103,8 @@ func shootArrow(var direction):
 	if !canShoot:
 		return
 	self.changeGravity()
+	var arrow = Arrow.instance()
+	self.get_parent().add_child(arrow)	
 	
 	var xVel = 0
 	if !self.velocity.x * direction < 0:
@@ -120,8 +122,6 @@ func shootArrow(var direction):
 	
 	var shootDirection = Vector2(direction, yDirection).normalized()
 	
-	var arrow = Arrow.instance()
-	self.get_parent().add_child(arrow)	
 	arrow.initialize(self.gravityFactor, position, shootDirection, Vector2(xVel, yVel))
 	
 	self.canShoot = false
