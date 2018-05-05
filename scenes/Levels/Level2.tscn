@@ -39,7 +39,19 @@ position = Vector2( -0.361694, 657.828 )
 
 position = Vector2( 219.198, 434.167 )
 
-[node name="ITSAHUGEWALL2" parent="Physical" index="3" instance=ExtResource( 3 )]
+[node name="ITSAHUGEWALL3" parent="Physical" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 65.002, -0.999329 )
+rotation = 1.5708
+_sections_unfolded = [ "Collision", "Pickable", "Transform" ]
+
+[node name="ITSAHUGEWALL4" parent="Physical" index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 1281.18, -0.999329 )
+rotation = 1.5708
+_sections_unfolded = [ "Collision", "Pickable", "Transform" ]
+
+[node name="ITSAHUGEWALL2" parent="Physical" index="5" instance=ExtResource( 3 )]
 
 position = Vector2( 723.198, 434.167 )
 

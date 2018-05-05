@@ -20,20 +20,26 @@ var Arrow = preload("res://scenes/Arrow.tscn")
 
 
 func _ready():
-	self.initialize(null, self.position, self.playerNumber)
+	self.initialize(null, self.position, self.playerNumber, self.gravityFactor)
 	
-func initialize(var gameController, var position, var playerNr):
+func initialize(var gameController, var position, var playerNr, var gravityFactor):
 	self.gameController = gameController
-	self.translate(position)
 	self.playerNumber = playerNr
+	
 	self.get_node("Player1Icon").set_visible(false)
-	sprite = self.get_node("Player" + str(playerNumber) + "Icon")
-	sprite.set_visible(true)
-	animationPlayer = sprite.get_node("AnimationPlayer")
+	self.sprite = self.get_node("Player" + str(playerNumber) + "Icon")
+	self.sprite.set_visible(true)
+	self.animationPlayer = self.sprite.get_node("AnimationPlayer")
+	
+	self.translate(position)
+	self.setGravityFactor(gravityFactor)
+
+func setGravityFactor(var gravityFactor):
+	self.gravityFactor = gravityFactor
+	self.sprite.scale.y = self.gravityFactor
 
 func changeGravity():
-	gravityFactor *= -1
-	sprite.scale.y *= -1
+	self.setGravityFactor(gravityFactor * -1)
 
 
 func playAnimation():

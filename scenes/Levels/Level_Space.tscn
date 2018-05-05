@@ -2,7 +2,7 @@
 
 [ext_resource path="res://graphics/spacey.png" type="Texture" id=1]
 
-[node name="Level1" type="Node2D" index="0"]
+[node name="Level1" type="Node2D"]
 
 [node name="Visual" type="Node" parent="." index="0"]
 
