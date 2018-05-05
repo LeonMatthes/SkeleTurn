@@ -26,6 +26,3 @@ func _on_Arrow_body_entered(body):
 	if body.is_in_group("Player"):
 		body.die()
 	self.queue_free()
-
-func _on_Arrow_area_entered(area):
-	self.queue_free()
