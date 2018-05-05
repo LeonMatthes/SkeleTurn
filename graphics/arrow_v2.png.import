@@ -7,10 +7,10 @@ path="res://.import/arrow_v2.png-9b43de0716934b0b84ab59d4c8bc2207.stex"
 [deps]
 
 source_file="res://graphics/arrow_v2.png"
-source_md5="3b695e8ccbfe25114bdaef7c69921063"
+source_md5="382398c7d03132e7ffd7dd45edbcc3a0"
 
 dest_files=[ "res://.import/arrow_v2.png-9b43de0716934b0b84ab59d4c8bc2207.stex" ]
-dest_md5="ee933ec950b445602bb5279bda4a57f5"
+dest_md5="1f136c6a65513eb43ba345f48c9d76b1"
 
 [params]
 

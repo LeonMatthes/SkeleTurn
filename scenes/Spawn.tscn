@@ -12,6 +12,7 @@ extents = Vector2( 31.6207, 45.8812 )
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
+turnGravity = false
 
 [node name="SpawnArea" type="Area2D" parent="." index="0"]
 

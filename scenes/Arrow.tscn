@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 75.9969, 8.88968 )
 
-[node name="Arrow" type="Area2D" index="0"]
+[node name="Arrow" type="Area2D"]
 
 scale = Vector2( 0.3125, 0.3125 )
 input_pickable = false
