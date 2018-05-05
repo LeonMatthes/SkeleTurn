@@ -1,26 +1,16 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Arrow.gd" type="Script" id=1]
 [ext_resource path="res://graphics/arrow_v2.png" type="Texture" id=2]
+[ext_resource path="res://graphics/blue.png" type="Texture" id=3]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
 render_priority = 0
-blend_mode = 4
+blend_mode = 0
 light_mode = 0
 
-[sub_resource type="Gradient" id=2]
-
-offsets = PoolRealArray( 0, 1 )
-colors = PoolColorArray( 0.964844, 0.0207493, 0.0207493, 1, 0.34375, 0.180192, 0.180192, 1 )
-
-[sub_resource type="GradientTexture" id=3]
-
-flags = 4
-gradient = SubResource( 2 )
-width = 2048
-
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=2]
 
 render_priority = 0
 trail_divisor = 1
@@ -48,9 +38,9 @@ damping = 0.0
 damping_random = 0.0
 angle = 50.0
 angle_random = 0.0
-scale = 4.0
+scale = 0.8
 scale_random = 0.3
-color_ramp = SubResource( 3 )
+color = Color( 1, 1, 1, 1 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -58,44 +48,44 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Initial Velocity", "Linear Accel", "Scale" ]
+_sections_unfolded = [ "Color", "Initial Velocity", "Linear Accel", "Scale" ]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 58.6384, 8.88968 )
 
-[sub_resource type="CanvasItemMaterial" id=6]
+[sub_resource type="CanvasItemMaterial" id=4]
 
 render_priority = 0
 blend_mode = 4
 light_mode = 0
 
-[sub_resource type="Gradient" id=7]
+[sub_resource type="Gradient" id=5]
 
 offsets = PoolRealArray( 0, 1 )
 colors = PoolColorArray( 0.964844, 0.946688, 0.946688, 1, 0.25, 0.243952, 0.243952, 1 )
 
-[sub_resource type="GradientTexture" id=8]
+[sub_resource type="GradientTexture" id=6]
 
 flags = 4
-gradient = SubResource( 7 )
+gradient = SubResource( 5 )
 width = 2048
 
-[sub_resource type="Curve" id=9]
+[sub_resource type="Curve" id=7]
 
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.998242, 0.592773 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=10]
+[sub_resource type="CurveTexture" id=8]
 
 flags = 4
 width = 2048
-curve = SubResource( 9 )
+curve = SubResource( 7 )
 
-[sub_resource type="ParticlesMaterial" id=11]
+[sub_resource type="ParticlesMaterial" id=9]
 
 render_priority = 0
 trail_divisor = 1
@@ -125,8 +115,8 @@ angle = 90.0
 angle_random = 0.0
 scale = 7.0
 scale_random = 0.7
-scale_curve = SubResource( 10 )
-color_ramp = SubResource( 8 )
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 6 )
 hue_variation = 1.0
 hue_variation_random = 1.0
 anim_speed = 0.0
@@ -136,7 +126,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Damping", "Initial Velocity", "Linear Accel", "Scale", "Spread" ]
 
-[node name="Arrow" type="Area2D"]
+[node name="Arrow" type="Area2D" index="0"]
 
 scale = Vector2( 0.3125, 0.3125 )
 input_pickable = false
@@ -172,8 +162,8 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 4 )
-texture = null
+process_material = SubResource( 2 )
+texture = ExtResource( 3 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -181,12 +171,12 @@ _sections_unfolded = [ "Material", "Process Material", "Textures", "Time", "Visi
 
 [node name="ArrowCollision" type="CollisionShape2D" parent="." index="2"]
 
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Particles" type="Particles2D" parent="." index="3"]
 
-material = SubResource( 6 )
+material = SubResource( 4 )
 position = Vector2( -48.6064, 0.248327 )
 rotation = 3.14178
 scale = Vector2( 0.4803, 0.5 )
@@ -203,7 +193,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 11 )
+process_material = SubResource( 9 )
 texture = null
 normal_map = null
 h_frames = 1

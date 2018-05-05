@@ -4,6 +4,7 @@ var velocity = Vector2()
 var gravityFactor = 1
 var customGravity = 1300
 var speed = 700
+onready var explosion = get_node("Explosion")
 
 func _ready():
 	get_node("Particles").emitting = true
@@ -52,6 +53,10 @@ func _on_timer_timeout():
 func _on_Arrow_body_entered(body):
 	if body.is_in_group("Player"):
 		self.get_sound("ArrowDamage").play()
-		get_node("Explosion").emitting = true
+		if body.playerNumber == 1:
+			explosion.texture = preload("res://graphics/red.png")
+		else:
+			explosion.texture = preload("res://graphics/blue.png")
+		explosion.emitting = true
 		body.die()
 	self.mydelete()
