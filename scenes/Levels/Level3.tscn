@@ -1,13 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://graphics/background.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Levels/Obstacles/Wall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Walls/HorizontalWall.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Scores.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/GameController.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/Spawn.tscn" type="PackedScene" id=6]
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" index="0"]
 
 [node name="Visual" type="Node" parent="." index="0"]
 
@@ -106,29 +103,5 @@ position = Vector2( 1121.58, 623.56 )
 [node name="Wall11" parent="Physical" index="14" instance=ExtResource( 3 )]
 
 position = Vector2( 158.507, 624.091 )
-
-[node name="Scores" parent="." index="2" instance=ExtResource( 4 )]
-
-[node name="GameController" parent="." index="3" instance=ExtResource( 5 )]
-
-_sections_unfolded = [ "Transform" ]
-
-[node name="Spawns" type="Node" parent="GameController" index="1"]
-
-[node name="SpawnPosition" parent="GameController/Spawns" index="0" instance=ExtResource( 6 )]
-
-position = Vector2( 1131.8, 337.018 )
-
-[node name="SpawnPosition2" parent="GameController/Spawns" index="1" instance=ExtResource( 6 )]
-
-position = Vector2( 841.217, 331.71 )
-
-[node name="SpawnPosition3" parent="GameController/Spawns" index="2" instance=ExtResource( 6 )]
-
-position = Vector2( 468.375, 343.652 )
-
-[node name="SpawnPosition4" parent="GameController/Spawns" index="3" instance=ExtResource( 6 )]
-
-position = Vector2( 149.784, 342.539 )
 
 

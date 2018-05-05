@@ -1,96 +1,93 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://graphics/background.png" type="Texture" id=1]
-[ext_resource path="res://scenes/Levels/Obstacles/Wall.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Levels/Obstacles/Platform.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Scores.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/GameController.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/Spawn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Walls/HorizontalWall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/GameController.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Spawn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Scores.tscn" type="PackedScene" id=5]
 
-[node name="Level1" type="Node2D"]
+[node name="Level2" type="Node" index="0"]
 
-[node name="Visual" type="Node" parent="." index="0"]
+[node name="background" type="Sprite" parent="." index="0"]
 
-[node name="Background" type="TextureRect" parent="Visual" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1280.0
-margin_bottom = 894.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+position = Vector2( 640, 360 )
 texture = ExtResource( 1 )
-stretch_mode = 0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Physical" type="Node" parent="." index="1"]
+[node name="Walls" type="Node" parent="." index="1"]
 
-[node name="Top" parent="Physical" index="0" instance=ExtResource( 2 )]
+editor/display_folded = true
 
-position = Vector2( -0.21228, -2.95059 )
-z_index = 1
-_sections_unfolded = [ "Collision", "Pickable", "Z Index" ]
+[node name="Wall" parent="Walls" index="0" instance=ExtResource( 2 )]
 
-[node name="Bot" parent="Physical" index="1" instance=ExtResource( 2 )]
+position = Vector2( 32, 32 )
+horizontalBlocks = 20
 
-position = Vector2( -0.361694, 657.828 )
-z_index = 1
-_sections_unfolded = [ "Collision", "Pickable", "Z Index" ]
+[node name="Wall2" parent="Walls" index="1" instance=ExtResource( 2 )]
 
-[node name="ITSAHUGEWALL" parent="Physical" index="2" instance=ExtResource( 3 )]
+position = Vector2( 32, 32 )
+horizontalBlocks = 20
 
-position = Vector2( 6.5675, 344.193 )
-_sections_unfolded = [ "Collision", "Pickable", "Z Index" ]
+[node name="Wall3" parent="Walls" index="2" instance=ExtResource( 2 )]
 
-[node name="ITSAHUGEWALL3" parent="Physical" index="3" instance=ExtResource( 2 )]
+position = Vector2( 96, 352 )
+horizontalBlocks = 3
 
-position = Vector2( 65.002, -0.999329 )
-rotation = 1.5708
-z_index = 1
-_sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index" ]
+[node name="Wall4" parent="Walls" index="3" instance=ExtResource( 2 )]
 
-[node name="ITSAHUGEWALL4" parent="Physical" index="4" instance=ExtResource( 2 )]
+position = Vector2( 32, 96 )
+verticalBlocks = 10
 
-position = Vector2( 1281.18, -0.999329 )
-rotation = 1.5708
-z_index = 1
-_sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index" ]
+[node name="Wall5" parent="Walls" index="4" instance=ExtResource( 2 )]
 
-[node name="ITSAHUGEWALL2" parent="Physical" index="5" instance=ExtResource( 3 )]
+position = Vector2( 32, 736 )
+horizontalBlocks = 20
 
-position = Vector2( 485.692, 344.605 )
+[node name="Wall6" parent="Walls" index="5" instance=ExtResource( 2 )]
 
-[node name="ITSAHUGEWALL5" parent="Physical" index="6" instance=ExtResource( 3 )]
+position = Vector2( 1248, 96 )
+verticalBlocks = 10
 
-position = Vector2( 958.359, 346.075 )
+[node name="Wall7" parent="Walls" index="6" instance=ExtResource( 2 )]
 
-[node name="Scores" parent="." index="2" instance=ExtResource( 4 )]
+position = Vector2( 1056, 352 )
+horizontalBlocks = 3
 
-[node name="GameController" parent="." index="3" instance=ExtResource( 5 )]
+[node name="Wall8" parent="Walls" index="7" instance=ExtResource( 2 )]
 
+position = Vector2( 544, 352 )
+horizontalBlocks = 4
+
+[node name="GameController" parent="." index="2" instance=ExtResource( 3 )]
+
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Node" type="Node" parent="GameController" index="1"]
+[node name="Spawns" type="Node" parent="GameController" index="1"]
 
-[node name="SpawnPosition" parent="GameController/Node" index="0" instance=ExtResource( 6 )]
+[node name="SpawnPosition2" parent="GameController/Spawns" index="0" instance=ExtResource( 4 )]
 
-position = Vector2( 1120, 300 )
+position = Vector2( 128, 288 )
 
-[node name="SpawnPosition2" parent="GameController/Node" index="1" instance=ExtResource( 6 )]
+[node name="SpawnPosition" parent="GameController/Spawns" index="1" instance=ExtResource( 4 )]
 
-position = Vector2( 128, 300 )
+position = Vector2( 1120, 288 )
 
-[node name="SpawnPosition3" parent="GameController/Node" index="2" instance=ExtResource( 6 )]
+[node name="SpawnPosition3" parent="GameController/Spawns" index="2" instance=ExtResource( 4 )]
 
-position = Vector2( 128, 460 )
+position = Vector2( 128, 416 )
+turnGravity = true
 
-[node name="SpawnPosition4" parent="GameController/Node" index="3" instance=ExtResource( 6 )]
+[node name="SpawnPosition4" parent="GameController/Spawns" index="3" instance=ExtResource( 4 )]
 
-position = Vector2( 1120, 450 )
+position = Vector2( 1120, 416 )
+turnGravity = true
 
+[node name="Scores" parent="." index="3" instance=ExtResource( 5 )]
 
+position = Vector2( 96, 96 )
+z_index = 3
+_sections_unfolded = [ "Transform", "Z Index" ]
