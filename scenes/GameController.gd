@@ -3,6 +3,7 @@ extends Node2D
 var spawns = []
 var activePlayers = [null, null, null]
 onready var TitleScreen = preload("res://scenes/Titlescreen_stupid.tscn")
+onready var EndScreen = preload("res://scenes/Endscrin.tscn")
 
 func _ready():
 	spawns = $Spawns.get_children()
@@ -24,6 +25,7 @@ func spawnPlayer(var playerNumber):
 	activePlayers[playerNumber] = availableSpawns[spawnNumber].spawnPlayer(self, playerNumber)
 	
 
+
 func returnToTitle():
 	for children in self.get_tree().get_root().get_children():
 		children.queue_free()
@@ -31,14 +33,19 @@ func returnToTitle():
 	var titleScreen = TitleScreen.instance()
 	self.get_tree().get_root().add_child(titleScreen)
 
-func endGame():
-	self.returnToTitle()
+func endGame(var winningPlayerNumber):
+	for children in self.get_tree().get_root().get_children():
+		children.queue_free()
+	
+	var endScreen = EndScreen.instance()
+	self.get_tree().get_root().add_child(endScreen)
+	endScreen.initialize(winningPlayerNumber)
 
 func notifyPlayerDeath(var playerNumber):
 	var scores = get_parent().get_node("Scores")
 	scores.setScore(playerNumber, scores.getScore(playerNumber) - 1)
 	if scores.getScore(playerNumber) <= 0:
-		self.endGame()
+		self.endGame(3 - playerNumber)
 		
 	activePlayers[playerNumber] = null
 	self.spawnPlayer(playerNumber)

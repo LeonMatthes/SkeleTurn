@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/GameController.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Sound.tscn" type="PackedScene" id=2]
 
-[node name="GameController" type="Node2D"]
+[node name="GameController" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
