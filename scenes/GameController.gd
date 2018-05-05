@@ -7,6 +7,7 @@ func _ready():
 	spawns = $Spawns.get_children()
 	self.spawnPlayer(1)
 	self.spawnPlayer(2)
+	self.position = Vector2(0,0)
 	randomize()
 
 func spawnPlayer(var playerNumber):
