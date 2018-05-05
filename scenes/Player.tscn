@@ -49,8 +49,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Player1Icon" type="Node2D" parent="." index="1"]
 
-visible = false
-
 [node name="Head" type="Sprite" parent="Player1Icon" index="0"]
 
 position = Vector2( 0, -38.8844 )
@@ -110,6 +108,8 @@ blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
 [node name="Player2Icon" type="Node2D" parent="." index="2"]
+
+visible = false
 
 [node name="Head" type="Sprite" parent="Player2Icon" index="0"]
 
