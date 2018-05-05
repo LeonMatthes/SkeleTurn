@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/arrow_shot.wav-5af0355235b745419a34dc8787ed365c.sample"
+
+[deps]
+
+source_file="res://sounds/arrow_shot.wav"
+source_md5="65a28a3f05472f155cae34bec0f2516d"
+
+dest_files=[ "res://.import/arrow_shot.wav-5af0355235b745419a34dc8787ed365c.sample" ]
+dest_md5="07ca269ed34607180b391bf7ee513b82"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
