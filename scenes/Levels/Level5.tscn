@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/Spawn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Scores.tscn" type="PackedScene" id=5]
 
-[node name="Level5" type="Node" index="0"]
+[node name="Level5" type="Node"]
 
 [node name="background" type="Sprite" parent="." index="0"]
 
@@ -103,38 +103,40 @@ editor/display_folded = true
 
 [node name="Spawns" type="Node" parent="GameController" index="1"]
 
+editor/display_folded = true
+
 [node name="SpawnPosition" parent="GameController/Spawns" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 160, 544 )
 
-[node name="SpawnPosition6" parent="GameController/Spawns" index="1" instance=ExtResource( 4 )]
+[node name="SpawnPosition2" parent="GameController/Spawns" index="1" instance=ExtResource( 4 )]
 
 position = Vector2( 416, 672 )
 
-[node name="SpawnPosition7" parent="GameController/Spawns" index="2" instance=ExtResource( 4 )]
+[node name="SpawnPosition3" parent="GameController/Spawns" index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 864, 672 )
 
-[node name="SpawnPosition8" parent="GameController/Spawns" index="3" instance=ExtResource( 4 )]
+[node name="SpawnPosition4" parent="GameController/Spawns" index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 160, 224 )
 turnGravity = true
 
-[node name="SpawnPosition2" parent="GameController/Spawns" index="4" instance=ExtResource( 4 )]
+[node name="SpawnPosition5" parent="GameController/Spawns" index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 1120, 544 )
 
-[node name="SpawnPosition3" parent="GameController/Spawns" index="5" instance=ExtResource( 4 )]
+[node name="SpawnPosition6" parent="GameController/Spawns" index="5" instance=ExtResource( 4 )]
 
 position = Vector2( 416, 96 )
 turnGravity = true
 
-[node name="SpawnPosition4" parent="GameController/Spawns" index="6" instance=ExtResource( 4 )]
+[node name="SpawnPosition7" parent="GameController/Spawns" index="6" instance=ExtResource( 4 )]
 
 position = Vector2( 864, 96 )
 turnGravity = true
 
-[node name="SpawnPosition5" parent="GameController/Spawns" index="7" instance=ExtResource( 4 )]
+[node name="SpawnPosition8" parent="GameController/Spawns" index="7" instance=ExtResource( 4 )]
 
 position = Vector2( 1120, 224 )
 turnGravity = true
