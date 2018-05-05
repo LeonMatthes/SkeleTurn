@@ -91,12 +91,10 @@ func updateGravity(delta):
 	if velocity.y * gravityFactor < 0:
 		velocity.y += gravityFactor * gravity * delta * 2
 
-
 func _physics_process(delta):
 	self.getInput()
 	self.updateGravity(delta)
 	velocity = self.move_and_slide(velocity)
-
 
 func getWidth():
 	return self.get_node("PlayerCollisionBox").shape.extents.x
@@ -106,7 +104,6 @@ func shootArrow(var direction):
 		return
 	self.changeGravity()
 	
-	var arrow = Arrow.instance()
 	var xVel = 0
 	if !self.velocity.x * direction < 0:
 		xVel += self.velocity.x / 5
@@ -115,7 +112,6 @@ func shootArrow(var direction):
 	var xOffset = (self.getWidth() + arrow.get_node("ArrowCollision").shape.extents.x / 2) * direction
 	var position = self.position + Vector2(xOffset, 0)
 	
-	self.get_parent().add_child(arrow)	
 	var yDirection = 0
 	if Input.is_action_pressed("aim_down" + str(playerNumber)):
 		yDirection += 1
@@ -124,13 +120,15 @@ func shootArrow(var direction):
 	
 	var shootDirection = Vector2(direction, yDirection).normalized()
 	
+	var arrow = Arrow.instance()
+	self.get_parent().add_child(arrow)	
 	arrow.initialize(self.gravityFactor, position, shootDirection, Vector2(xVel, yVel))
+	
 	self.canShoot = false
 	self.shootTimer.start()
 
 func _on_shootTimer_timeout():
 	canShoot = true
-
 
 func _on_deathTimer_timeout():
 	self.queue_free()
@@ -139,8 +137,7 @@ func die():
 	gameController.notifyPlayerDeath(playerNumber)
 	
 	animationPlayer.play("Dying", -1, 3.0) #todo change to dying
-	self.get_node("PlayerCollisionBox").disabled = true
-	self.set_physics_process(false)
+	self.inputDisabled = true
 	
 	var timer = Timer.new()
 	timer.connect("timeout",self,"_on_deathTimer_timeout") 
