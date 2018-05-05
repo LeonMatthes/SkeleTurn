@@ -49,6 +49,7 @@ func playAnimation():
 func stopAnimation():
 	if animationPlayer.is_playing():
 		animationPlayer.stop(false)
+	
 
 func getInput():
 	#handle movement input
@@ -102,7 +103,17 @@ func shootArrow(var direction):
 	self.get_parent().add_child(arrow)
 	arrow.initialize(self.gravityFactor, position, direction, Vector2(xVel, yVel))
 
+func _on_timer_timeout():
+	self.queue_free()
 
 func die():
 	gameController.notifyPlayerDeath(playerNumber)
-	self.queue_free()
+	
+	animationDeadPlayer.play("Dead")
+	
+	var timer = Timer.new()
+	timer.connect("timeout",self,"_on_timer_timeout") 
+	timer.wait_time = 1
+	add_child(timer)
+	timer.start()
+	
