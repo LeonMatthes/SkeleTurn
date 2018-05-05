@@ -103,6 +103,8 @@ func shootArrow(var direction):
 	if !canShoot:
 		return
 	self.changeGravity()
+	var arrow = Arrow.instance()
+	self.get_parent().add_child(arrow)	
 	
 	var xVel = 0
 	if !self.velocity.x * direction < 0:
@@ -120,8 +122,6 @@ func shootArrow(var direction):
 	
 	var shootDirection = Vector2(direction, yDirection).normalized()
 	
-	var arrow = Arrow.instance()
-	self.get_parent().add_child(arrow)	
 	arrow.initialize(self.gravityFactor, position, shootDirection, Vector2(xVel, yVel))
 	
 	self.canShoot = false
@@ -137,7 +137,8 @@ func die():
 	gameController.notifyPlayerDeath(playerNumber)
 	
 	animationPlayer.play("Dying", -1, 3.0) #todo change to dying
-	self.inputDisabled = true
+	self.set_physics_process(false)
+	self.get_node("PlayerCollisionBox").disabled = true
 	
 	var timer = Timer.new()
 	timer.connect("timeout",self,"_on_deathTimer_timeout") 
