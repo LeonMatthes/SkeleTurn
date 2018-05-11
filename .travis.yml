@@ -48,7 +48,7 @@ deploy:
     # Create GitHub Releases for new git tags
     # regardless of the branch.
     all_branches: true
-    tags: true
+    #tags: true
 
 # The following block is responsible for pushing the HTML5 version of the game
 # to GitHub Pages. To do so, Travis will commit the contents specified in "local-dir"

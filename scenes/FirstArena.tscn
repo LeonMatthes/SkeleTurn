@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/Levels/Level2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Scores.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/GameController.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Spawn.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Level1" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 462.004, 299.002 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Scores" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 174.275, 128.67 )
+z_index = 1
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="GameController2" parent="." index="2" instance=ExtResource( 3 )]
+
+z_index = 1
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Spawns" type="Node2D" parent="GameController2" index="0"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="SpawnPosition" parent="GameController2/Spawns" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( 626.39, 295.197 )
+
+[node name="SpawnPosition2" parent="GameController2/Spawns" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 172.64, 293.93 )
+
+[node name="SpawnPosition4" parent="GameController2/Spawns" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 1093.03, 298.002 )
+
+[node name="SpawnPosition3" parent="GameController2/Spawns" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 628.498, 458.811 )
+turnGravity = true
+
+[node name="SpawnPosition5" parent="GameController2/Spawns" index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 1093.58, 458.811 )
+turnGravity = true
+
+[node name="SpawnPosition6" parent="GameController2/Spawns" index="5" instance=ExtResource( 4 )]
+
+position = Vector2( 173.188, 461.254 )
+turnGravity = true
+
+
