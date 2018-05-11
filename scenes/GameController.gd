@@ -3,7 +3,7 @@ extends Node2D
 var spawns = []
 var activePlayers = [null, null, null]
 onready var TitleScreen = load("res://scenes/Titlescreen_stupid.tscn")
-onready var EndScreen = preload("res://scenes/Endscrin.tscn")
+onready var EndScreen = load("res://scenes/Endscrin.tscn")
 
 func _ready():
 	spawns = $Spawns.get_children()
