@@ -1,6 +1,6 @@
 extends Container
 
-onready var TitleScreen = preload("res://scenes/Titlescreen_stupid.tscn")
+onready var TitleScreen = load("res://scenes/Titlescreen_stupid.tscn")
 
 func initialize(var winnerNumber):
 	var winnerNode = null
