@@ -13,3 +13,9 @@ Your goal is to shoot your opponent with an arrow, but beware, the gravity will 
 * Movement: A/D keys
 * Shoot: C/V keys
 * Aim: W/S keys
+
+## Credits
+The game has been developed by:
+* [DieKeksmaffia](github.com/DieKeksmaffia)
+* [leonschmidt99](github.com/leonschmidt99)
+* [MrModder](github.com/MrModder)
