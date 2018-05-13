@@ -19,3 +19,4 @@ The game has been developed by:
 * [DieKeksmaffia](github.com/DieKeksmaffia)
 * [leonschmidt99](github.com/leonschmidt99)
 * [MrModder](github.com/MrModder)
+* [Quacck](github.com/Quacck)
