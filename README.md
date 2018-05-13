@@ -16,7 +16,7 @@ Your goal is to shoot your opponent with an arrow, but beware, the gravity will 
 
 ## Credits
 The game has been developed by:
-* [DieKeksmaffia](github.com/DieKeksmaffia)
-* [leonschmidt99](github.com/leonschmidt99)
-* [MrModder](github.com/MrModder)
-* [Quacck](github.com/Quacck)
+* [DieKeksmaffia](http://github.com/DieKeksmaffia)
+* [leonschmidt99](http://github.com/leonschmidt99)
+* [MrModder](http://github.com/MrModder)
+* [Quacck](http://github.com/Quacck)
